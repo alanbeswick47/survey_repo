@@ -48,6 +48,12 @@
             padding-bottom: 30px;
         }
 
+        .header-logo {
+            max-width: 80px;
+            height: auto;
+            margin-bottom: 20px;
+        }
+
         h1 {
             font-size: 36px;
             color: var(--primary);
@@ -141,6 +147,11 @@
             font-weight: 500;
             color: var(--text-dark);
             margin-bottom: 12px;
+        }
+
+        .required {
+            color: #d32f2f;
+            font-weight: bold;
         }
 
         .form-hint {
@@ -268,19 +279,72 @@
             background: var(--accent-light);
         }
 
-        .form-instructions {
-            background: var(--bg-light);
-            padding: 20px;
-            border-radius: 3px;
-            margin: 30px 0;
-            font-size: 14px;
-            line-height: 1.7;
-        }
-
         .checkbox-list {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 15px;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        .modal-content {
+            background-color: var(--bg-white);
+            margin: 15% auto;
+            padding: 30px;
+            border-radius: 4px;
+            width: 90%;
+            max-width: 400px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .modal-content h2 {
+            color: var(--primary);
+            margin-bottom: 20px;
+            font-size: 20px;
+        }
+
+        .modal-content p {
+            color: var(--text-dark);
+            margin-bottom: 25px;
+            line-height: 1.6;
+        }
+
+        .modal-buttons {
+            display: flex;
+            gap: 10px;
+            justify-content: flex-end;
+        }
+
+        .modal-buttons button {
+            padding: 10px 20px;
+            font-size: 14px;
+        }
+
+        .btn-cancel {
+            background: var(--border);
+            color: var(--text-dark);
+        }
+
+        .btn-cancel:hover {
+            background: #ccc;
+        }
+
+        .btn-submit-anyway {
+            background: var(--accent);
+            color: white;
+        }
+
+        .btn-submit-anyway:hover {
+            background: var(--accent-light);
         }
 
         @media (max-width: 600px) {
@@ -313,6 +377,7 @@
 <body>
     <div class="container">
         <div class="header">
+            <img src="https://images.squarespace-cdn.com/content/v1/65adb7e0d6442638fa747138/7759d50e-4dd2-4c28-a0a9-cda7573a5cf1/menslogoweb.png" alt="Men's Shed Logo" class="header-logo">
             <h1>WMDMS Member Survey</h1>
             <p class="tagline">Helping Shape the Future of Our Shed</p>
         </div>
@@ -334,13 +399,14 @@
             <p style="margin-top: 15px; font-size: 13px; color: var(--text-light);">There are no right or wrong answers. Thank you for taking the time to complete the survey.</p>
         </div>
 
-        <form>
+        <form id="surveyForm">
             <!-- Section 1: About You -->
             <h2 class="section-title">Section 1 — About You</h2>
 
             <div class="form-group">
-                <label for="name">Your Name <span style="color: var(--text-light);">(Optional)</span></label>
-                <input type="text" id="name" name="name">
+                <label for="contact">Contact Details <span class="required">*</span></label>
+                <div class="form-hint">Email or name (we may need to follow up on your feedback)</div>
+                <input type="text" id="contact" name="contact" required>
             </div>
 
             <div class="form-group">
@@ -1001,7 +1067,7 @@
 
             <div class="button-group">
                 <button type="button" onclick="saveResponses()">Save Responses</button>
-                <button type="submit">Submit Survey Response</button>
+                <button type="submit" onclick="checkCompletion(event)">Submit Survey Response</button>
             </div>
         </form>
 
@@ -1011,9 +1077,21 @@
         </div>
     </div>
 
+    <!-- Modal for incomplete submission -->
+    <div id="incompleteModal" class="modal">
+        <div class="modal-content">
+            <h2>Incomplete Survey</h2>
+            <p>You haven't answered all the questions in this survey. Would you still like to submit it, or do you want to go back and complete it?</p>
+            <div class="modal-buttons">
+                <button class="btn-cancel" onclick="closeModal()">Go Back</button>
+                <button class="btn-submit-anyway" onclick="submitForm()">Submit Anyway</button>
+            </div>
+        </div>
+    </div>
+
     <script>
     function saveResponses() {
-      const formData = new FormData(document.querySelector('form'));
+      const formData = new FormData(document.querySelector('#surveyForm'));
       const data = Object.fromEntries(formData);
       localStorage.setItem('surveyResponses', JSON.stringify(data));
       alert('Responses saved. You can close the page and come back later.');
@@ -1036,6 +1114,66 @@
         }
       }
     });
+
+    function countFilledFields() {
+      const form = document.querySelector('#surveyForm');
+      const inputs = form.querySelectorAll('textarea, input[type="text"], input[type="email"]');
+      let filledTextFields = 0;
+      inputs.forEach(input => {
+        if (input.value.trim() !== '') {
+          filledTextFields++;
+        }
+      });
+      
+      const radioGroups = {};
+      form.querySelectorAll('input[type="radio"]').forEach(radio => {
+        radioGroups[radio.name] = radioGroups[radio.name] || false;
+        if (radio.checked) radioGroups[radio.name] = true;
+      });
+      
+      const checkboxGroups = {};
+      form.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
+        checkboxGroups[checkbox.name] = checkboxGroups[checkbox.name] || false;
+        if (checkbox.checked) checkboxGroups[checkbox.name] = true;
+      });
+      
+      let totalAnswered = filledTextFields + Object.values(radioGroups).filter(v => v).length + Object.values(checkboxGroups).filter(v => v).length;
+      let estimatedTotal = inputs.length + Object.keys(radioGroups).length + Object.keys(checkboxGroups).length;
+      
+      return totalAnswered < estimatedTotal * 0.8;
+    }
+
+    function checkCompletion(event) {
+      event.preventDefault();
+      
+      const contactField = document.querySelector('#contact').value.trim();
+      if (!contactField) {
+        alert('Please provide contact details (email or name) before submitting.');
+        return;
+      }
+      
+      if (countFilledFields()) {
+        document.getElementById('incompleteModal').style.display = 'block';
+      } else {
+        submitForm();
+      }
+    }
+
+    function closeModal() {
+      document.getElementById('incompleteModal').style.display = 'none';
+    }
+
+    function submitForm() {
+      document.getElementById('incompleteModal').style.display = 'none';
+      document.querySelector('#surveyForm').submit();
+    }
+
+    window.onclick = function(event) {
+      const modal = document.getElementById('incompleteModal');
+      if (event.target == modal) {
+        modal.style.display = 'none';
+      }
+    }
     </script>
 </body>
 </html>
