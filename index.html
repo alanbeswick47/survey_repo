@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WMDMS Member Survey</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #3d5941;
+            --primary-light: #5a7d5f;
+            --accent: #c97e4a;
+            --accent-light: #d99465;
+            --text-dark: #2c3e50;
+            --text-light: #555;
+            --bg-light: #f5f2ed;
+            --bg-white: #ffffff;
+            --border: #ddd;
+        }
+
+        body {
+            font-family: 'Crimson Text', 'Georgia', serif;
+            color: var(--text-dark);
+            background: linear-gradient(135deg, #f0ebe3 0%, #e8e1d8 100%);
+            min-height: 100vh;
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: var(--bg-white);
+            padding: 60px 50px;
+            border-radius: 4px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 50px;
+            border-bottom: 4px solid var(--primary);
+            padding-bottom: 30px;
+        }
+
+        h1 {
+            font-size: 36px;
+            color: var(--primary);
+            margin-bottom: 12px;
+            font-weight: 400;
+            letter-spacing: 0.5px;
+        }
+
+        .tagline {
+            font-size: 16px;
+            color: var(--accent);
+            font-style: italic;
+            font-weight: 500;
+            margin-bottom: 20px;
+        }
+
+        .subtitle {
+            font-size: 14px;
+            color: var(--text-light);
+            line-height: 1.8;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .vision-box {
+            background: linear-gradient(135deg, #faf7f2 0%, #f5f0e8 100%);
+            border-left: 4px solid var(--accent);
+            padding: 25px;
+            margin: 40px 0;
+            border-radius: 2px;
+        }
+
+        .vision-box h3 {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--accent);
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .vision-box p {
+            font-size: 15px;
+            color: var(--text-dark);
+            font-style: italic;
+        }
+
+        .intro-text {
+            font-size: 14px;
+            color: var(--text-light);
+            line-height: 1.8;
+            margin: 30px 0;
+        }
+
+        .survey-links {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin: 50px 0;
+        }
+
+        .survey-card {
+            background: linear-gradient(135deg, #faf7f2 0%, #f5f0e8 100%);
+            border: 2px solid var(--border);
+            border-radius: 4px;
+            padding: 30px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .survey-card:hover {
+            border-color: var(--accent);
+            box-shadow: 0 4px 12px rgba(201, 126, 74, 0.15);
+        }
+
+        .survey-card h2 {
+            font-size: 20px;
+            color: var(--primary);
+            margin-bottom: 15px;
+            font-weight: 500;
+        }
+
+        .survey-card p {
+            font-size: 14px;
+            color: var(--text-light);
+            margin-bottom: 25px;
+            line-height: 1.7;
+        }
+
+        .survey-link {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 14px 30px;
+            border: none;
+            border-radius: 3px;
+            font-size: 15px;
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            font-family: 'Segoe UI', Tahoma, Geneva, sans-serif;
+        }
+
+        .survey-link:hover {
+            background: var(--primary-light);
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 60px;
+            padding-top: 40px;
+            border-top: 2px solid var(--border);
+            font-size: 13px;
+            color: var(--text-light);
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 30px 20px;
+            }
+
+            h1 {
+                font-size: 28px;
+            }
+
+            .survey-links {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>WMDMS Member Survey</h1>
+            <p class="tagline">Helping Shape the Future of Our Shed</p>
+        </div>
+
+        <div class="vision-box">
+            <h3>Our Vision</h3>
+            <p>An environment where members can choose to spend their time to connect, find friendship, camaraderie and a relaxing space for growth and enjoyment.</p>
+        </div>
+
+        <div class="intro-text">
+            <p>Thank you for your interest in participating in the WMDMS Member Survey. We have two survey formats available:</p>
+        </div>
+
+        <div class="survey-links">
+            <div class="survey-card">
+                <h2>Verbose Survey</h2>
+                <p>Comprehensive survey with detailed questions, multiple choice options, rating scales, and open-ended text responses. Best for gathering in-depth feedback and insights.</p>
+                <a href="WMDMS_Member_Survey_Training_Sample_1.html" class="survey-link">Start Verbose Survey</a>
+            </div>
+
+            <div class="survey-card">
+                <h2>Succinct Survey</h2>
+                <p>Streamlined survey with focused open-ended questions. Best for members with limited time who prefer to provide brief, direct responses.</p>
+                <a href="WMDMS_Member_Survey.html" class="survey-link">Start Succinct Survey</a>
+            </div>
+        </div>
+
+        <div class="intro-text">
+            <p><strong>Your feedback matters.</strong> Whether you complete the verbose or succinct version, your responses will help us understand your needs and shape the future of the Men's Shed. There are no right or wrong answers—we simply want to hear your voice.</p>
+        </div>
+
+        <div class="footer">
+            <p>Thank you for taking the time to complete this survey and contribute to the future of our Shed.</p>
+        </div>
+    </div>
+</body>
+</html>
