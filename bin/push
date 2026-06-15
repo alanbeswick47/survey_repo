@@ -1,0 +1,6 @@
+#!/bin/bash
+cd ~/survey_repo
+git add .
+git commit -m "Update survey"
+git push origin main
+echo "Done"
