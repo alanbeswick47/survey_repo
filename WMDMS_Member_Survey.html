@@ -1067,6 +1067,7 @@
 
             <div class="button-group">
                 <button type="button" onclick="saveResponses()">Save Responses</button>
+                <button type="button" onclick="clearForm()">Clear Form</button>
                 <button type="submit" onclick="checkCompletion(event)">Submit Survey Response</button>
             </div>
         </form>
@@ -1090,6 +1091,12 @@
     </div>
 
     <script>
+    function clearForm() {
+      localStorage.removeItem("surveyResponses");
+      document.querySelector("#surveyForm").reset();
+      alert("Form cleared.");
+    }
+
     function saveResponses() {
       const formData = new FormData(document.querySelector('#surveyForm'));
       const data = Object.fromEntries(formData);
