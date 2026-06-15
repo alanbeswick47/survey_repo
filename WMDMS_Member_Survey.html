@@ -21,10 +21,6 @@
             --bg-light: #f5f2ed;
             --bg-white: #ffffff;
             --border: #ddd;
-            --success: #27ae60;
-            --error: #e74c3c;
-            --rating-neutral: #bbb;
-            --rating-selected: #c97e4a;
         }
 
         body {
@@ -45,7 +41,6 @@
             box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
         }
 
-        /* Header */
         .header {
             text-align: center;
             margin-bottom: 50px;
@@ -77,7 +72,6 @@
             margin: 0 auto;
         }
 
-        /* Vision box */
         .vision-box {
             background: linear-gradient(135deg, #faf7f2 0%, #f5f0e8 100%);
             border-left: 4px solid var(--accent);
@@ -98,1052 +92,950 @@
         .vision-box p {
             font-size: 15px;
             color: var(--text-dark);
-            line-height: 1.7;
+            font-style: italic;
         }
 
-        .vision-themes {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
-            gap: 15px;
-            margin-top: 20px;
-            padding-top: 20px;
-            border-top: 1px solid #ddd;
+        .intro-text {
+            font-size: 14px;
+            color: var(--text-light);
+            line-height: 1.8;
+            margin: 30px 0;
         }
 
-        .theme-badge {
-            background: var(--primary);
-            color: white;
-            padding: 8px 12px;
-            border-radius: 3px;
-            font-size: 12px;
-            text-align: center;
-            font-weight: 500;
-            letter-spacing: 0.5px;
+        .intro-text ul {
+            margin-left: 20px;
+            margin-top: 10px;
         }
 
-        /* Section */
-        .section {
-            margin-bottom: 50px;
-            padding-bottom: 40px;
-            border-bottom: 1px solid #eee;
-        }
-
-        .section:last-child {
-            border-bottom: none;
-        }
-
-        .section-number {
-            font-size: 12px;
-            font-weight: 600;
-            color: var(--accent);
-            text-transform: uppercase;
-            letter-spacing: 1px;
+        .intro-text li {
             margin-bottom: 8px;
         }
 
         .section-title {
-            font-size: 24px;
+            font-size: 20px;
             color: var(--primary);
-            font-weight: 400;
-            margin-bottom: 12px;
-        }
-
-        .section-desc {
-            font-size: 14px;
-            color: var(--text-light);
+            margin-top: 50px;
             margin-bottom: 30px;
-            font-style: italic;
+            padding-bottom: 15px;
+            border-bottom: 2px solid var(--border);
+            font-weight: 500;
         }
 
-        /* Questions */
-        .question {
-            margin-bottom: 35px;
+        .section-subtitle {
+            font-size: 16px;
+            color: var(--accent);
+            margin-top: 35px;
+            margin-bottom: 20px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
-        .question-label {
+        .form-group {
+            margin-bottom: 30px;
+        }
+
+        label {
             display: block;
             font-size: 15px;
-            font-weight: 600;
+            font-weight: 500;
             color: var(--text-dark);
-            margin-bottom: 14px;
-        }
-
-        .question-note {
-            font-size: 12px;
-            color: var(--text-light);
-            font-style: italic;
-            margin-top: -10px;
             margin-bottom: 12px;
         }
 
-        /* Radio buttons */
-        .radio-group, .checkbox-group {
+        .form-hint {
+            font-size: 13px;
+            color: var(--text-light);
+            font-style: italic;
+            margin-bottom: 10px;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        textarea,
+        select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid var(--border);
+            border-radius: 3px;
+            font-family: 'Segoe UI', Tahoma, Geneva, sans-serif;
+            font-size: 14px;
+            color: var(--text-dark);
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 100px;
+            font-family: 'Segoe UI', Tahoma, Geneva, sans-serif;
+        }
+
+        .checkbox-group,
+        .radio-group {
             display: flex;
             flex-direction: column;
-            gap: 12px;
         }
 
-        .radio-wrapper, .checkbox-wrapper {
+        .checkbox-item,
+        .radio-item {
             display: flex;
             align-items: center;
+            margin-bottom: 12px;
         }
 
-        .radio-wrapper input[type="radio"],
-        .checkbox-wrapper input[type="checkbox"] {
+        input[type="checkbox"],
+        input[type="radio"] {
+            margin-right: 10px;
+            cursor: pointer;
             width: 18px;
             height: 18px;
-            margin-right: 12px;
-            cursor: pointer;
-            accent-color: var(--primary);
-            flex-shrink: 0;
         }
 
-        .radio-wrapper label,
-        .checkbox-wrapper label {
+        .checkbox-item label,
+        .radio-item label {
+            margin: 0;
+            font-weight: normal;
             cursor: pointer;
             font-size: 14px;
-            color: var(--text-light);
-            user-select: none;
-            flex: 1;
-        }
-
-        .radio-wrapper:hover label,
-        .checkbox-wrapper:hover label {
-            color: var(--primary);
-        }
-
-        /* Rating scales */
-        .rating-group {
-            display: flex;
-            gap: 8px;
-            align-items: center;
-            flex-wrap: wrap;
         }
 
         .rating-scale {
             display: flex;
-            gap: 6px;
+            gap: 15px;
+            justify-content: flex-start;
+            margin: 20px 0;
         }
 
-        .rating-btn {
-            width: 38px;
-            height: 38px;
-            border: 2px solid var(--rating-neutral);
-            background: white;
-            border-radius: 3px;
+        .rating-option {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .rating-option input[type="radio"] {
+            margin-bottom: 8px;
             cursor: pointer;
-            font-size: 14px;
-            font-weight: 600;
-            color: var(--text-light);
-            transition: all 0.2s ease;
         }
 
-        .rating-btn:hover {
-            border-color: var(--accent);
-            color: var(--accent);
-        }
-
-        .rating-btn.selected {
-            background: var(--accent);
-            border-color: var(--accent);
-            color: white;
+        .rating-option label {
+            font-size: 12px;
+            text-align: center;
+            max-width: 50px;
+            margin: 0;
+            cursor: pointer;
         }
 
         .rating-labels {
             display: flex;
             justify-content: space-between;
-            font-size: 11px;
+            font-size: 12px;
             color: var(--text-light);
-            margin-top: 8px;
-            margin-left: 0;
+            margin-top: 10px;
+            margin-bottom: 15px;
         }
 
-        /* Text inputs */
-        textarea {
-            width: 100%;
-            padding: 12px;
-            border: 1px solid var(--border);
-            border-radius: 3px;
-            font-family: inherit;
-            font-size: 14px;
-            color: var(--text-dark);
-            resize: vertical;
-            min-height: 80px;
-            line-height: 1.5;
-        }
-
-        textarea:focus {
-            outline: none;
-            border-color: var(--accent);
-            box-shadow: 0 0 0 3px rgba(201, 126, 74, 0.1);
-        }
-
-        /* Form actions */
-        .form-actions {
+        .button-group {
             display: flex;
-            gap: 12px;
-            margin-top: 50px;
-            padding-top: 30px;
-            border-top: 2px solid var(--primary);
+            gap: 15px;
+            margin-top: 30px;
         }
 
         button {
-            flex: 1;
-            padding: 14px 28px;
-            font-size: 14px;
-            font-weight: 600;
+            padding: 14px 30px;
             border: none;
             border-radius: 3px;
+            font-size: 15px;
+            font-weight: 600;
             cursor: pointer;
-            transition: all 0.3s ease;
-            font-family: inherit;
-            letter-spacing: 0.5px;
+            transition: background 0.3s ease;
+            font-family: 'Segoe UI', Tahoma, Geneva, sans-serif;
         }
 
-        .btn-submit {
+        button[type="submit"] {
             background: var(--primary);
             color: white;
         }
 
-        .btn-submit:hover {
+        button[type="submit"]:hover {
             background: var(--primary-light);
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(61, 89, 65, 0.2);
         }
 
-        .btn-submit:active {
-            transform: translateY(0);
+        button[type="button"] {
+            background: var(--accent);
+            color: white;
         }
 
-        .btn-reset {
+        button[type="button"]:hover {
+            background: var(--accent-light);
+        }
+
+        .form-instructions {
             background: var(--bg-light);
-            color: var(--text-dark);
-            border: 1px solid var(--border);
-        }
-
-        .btn-reset:hover {
-            background: #e8dfd8;
-        }
-
-        /* Feedback */
-        .feedback {
-            margin-top: 20px;
-            padding: 15px;
-            border-radius: 3px;
-            display: none;
-            font-size: 14px;
-        }
-
-        .feedback.success {
-            background: #d4edda;
-            color: #155724;
-            border: 1px solid #c3e6cb;
-            display: block;
-        }
-
-        .feedback.error {
-            background: #f8d7da;
-            color: #721c24;
-            border: 1px solid #f5c6cb;
-            display: block;
-        }
-
-        .feedback.loading {
-            background: #cce5ff;
-            color: #004085;
-            border: 1px solid #b8daff;
-            display: block;
-        }
-
-        /* Info text */
-        .info-text {
-            font-size: 12px;
-            color: #666;
-            font-style: italic;
-            margin-top: 40px;
             padding: 20px;
-            background: var(--bg-light);
-            border-left: 4px solid var(--accent);
-            border-radius: 2px;
+            border-radius: 3px;
+            margin: 30px 0;
+            font-size: 14px;
+            line-height: 1.7;
         }
 
-        /* Responsive */
+        .checkbox-list {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
         @media (max-width: 600px) {
             .container {
                 padding: 30px 20px;
             }
 
             h1 {
-                font-size: 26px;
+                font-size: 28px;
             }
 
-            .section-title {
-                font-size: 18px;
+            .checkbox-list {
+                grid-template-columns: 1fr;
             }
 
-            .form-actions {
+            .rating-scale {
+                gap: 10px;
+            }
+
+            .button-group {
                 flex-direction: column;
             }
 
             button {
                 width: 100%;
             }
-
-            .rating-btn {
-                width: 32px;
-                height: 32px;
-                font-size: 12px;
-            }
-        }
-
-        /* Print styles */
-        @media print {
-            body {
-                background: white;
-            }
-
-            .container {
-                box-shadow: none;
-                padding: 0;
-            }
-
-            .form-actions {
-                display: none;
-            }
-
-            .feedback {
-                display: none;
-            }
         }
     </style>
 </head>
 <body>
-    <div style="position: fixed; top: 10px; right: 10px; background: #666; color: white; padding: 5px 10px; border-radius: 3px; font-size: 12px; z-index: 9999; font-family: monospace;">v2.0 - Working form</div>
-
     <div class="container">
         <div class="header">
             <h1>WMDMS Member Survey</h1>
             <p class="tagline">Helping Shape the Future of Our Shed</p>
-            <p class="subtitle">Your feedback is valuable. This survey helps us understand your needs and shape the future of the Men's Shed. There are no right or wrong answers—we simply want honest feedback from you.</p>
         </div>
 
         <div class="vision-box">
             <h3>Our Vision</h3>
             <p>An environment where members can choose to spend their time to connect, find friendship, camaraderie and a relaxing space for growth and enjoyment.</p>
-            <div class="vision-themes">
-                <div class="theme-badge">Choice</div>
-                <div class="theme-badge">Connection</div>
-                <div class="theme-badge">Friendship</div>
-                <div class="theme-badge">Relaxation</div>
-                <div class="theme-badge">Growth</div>
-                <div class="theme-badge">Enjoyment</div>
-            </div>
         </div>
 
-        <form id="surveyForm" action="https://formsubmit.co/alanbeswick47@gmail.com" method="POST">
+        <div class="intro-text">
+            <p><strong>This survey is an opportunity to better understand your needs:</strong></p>
+            <ul>
+                <li>What do you enjoy most about the Shed?</li>
+                <li>What keeps you coming back OR keeps you from attending regularly?</li>
+                <li>What activities, spaces and facilities are important to you?</li>
+                <li>What improvements could make the Shed even better?</li>
+                <li>What opportunities would you like to see in the future?</li>
+            </ul>
+            <p style="margin-top: 15px; font-size: 13px; color: var(--text-light);">There are no right or wrong answers. Thank you for taking the time to complete the survey.</p>
+        </div>
 
+        <form>
             <!-- Section 1: About You -->
-            <div class="section">
-                <div class="section-number">Section 1</div>
-                <h2 class="section-title">About You</h2>
+            <h2 class="section-title">Section 1 — About You</h2>
 
-                <div class="question">
-                    <label class="question-label">1. How long have you been a member of the Men's Shed?</label>
-                    <div class="radio-group">
-                        <div class="radio-wrapper">
-                            <input type="radio" id="q1a" name="membership_duration" value="less_than_1yr">
-                            <label for="q1a">☐ 1. Less than 1 year</label>
-                        </div>
-                        <div class="radio-wrapper">
-                            <input type="radio" id="q1b" name="membership_duration" value="1_to_3yrs">
-                            <label for="q1b">☐ 2. 1–3 years</label>
-                        </div>
-                        <div class="radio-wrapper">
-                            <input type="radio" id="q1c" name="membership_duration" value="4_to_7yrs" checked>
-                            <label for="q1c">☐ 3. 4–7 years</label>
-                        </div>
-                        <div class="radio-wrapper">
-                            <input type="radio" id="q1d" name="membership_duration" value="8_to_10yrs">
-                            <label for="q1d">☐ 4. 8–10 years</label>
-                        </div>
-                        <div class="radio-wrapper">
-                            <input type="radio" id="q1e" name="membership_duration" value="more_than_10yrs">
-                            <label for="q1e">☐ 5. More than 10 years</label>
-                        </div>
+            <div class="form-group">
+                <label for="name">Your Name <span style="color: var(--text-light);">(Optional)</span></label>
+                <input type="text" id="name" name="name">
+            </div>
+
+            <div class="form-group">
+                <label>How long have you been a member of the Men's Shed?</label>
+                <div class="radio-group">
+                    <div class="radio-item">
+                        <input type="radio" id="member_less1" name="membership_duration" value="less_1year">
+                        <label for="member_less1">Less than 1 year</label>
                     </div>
-                </div>
-
-                <div class="question">
-                    <label class="question-label">2. How often do you attend the Men's Shed?</label>
-                    <div class="radio-group">
-                        <div class="radio-wrapper">
-                            <input type="radio" id="q2a" name="attendance_frequency" value="more_than_once_week">
-                            <label for="q2a">More than once a week</label>
-                        </div>
-                        <div class="radio-wrapper">
-                            <input type="radio" id="q2b" name="attendance_frequency" value="weekly">
-                            <label for="q2b">Weekly</label>
-                        </div>
-                        <div class="radio-wrapper">
-                            <input type="radio" id="q2c" name="attendance_frequency" value="fortnightly" checked>
-                            <label for="q2c">Fortnightly</label>
-                        </div>
-                        <div class="radio-wrapper">
-                            <input type="radio" id="q2d" name="attendance_frequency" value="monthly">
-                            <label for="q2d">Monthly</label>
-                        </div>
-                        <div class="radio-wrapper">
-                            <input type="radio" id="q2e" name="attendance_frequency" value="occasionally">
-                            <label for="q2e">Occasionally/rarely</label>
-                        </div>
-                        <div class="radio-wrapper">
-                            <input type="radio" id="q2f" name="attendance_frequency" value="not_attended">
-                            <label for="q2f">I have not attended since joining</label>
-                        </div>
+                    <div class="radio-item">
+                        <input type="radio" id="member_1to3" name="membership_duration" value="1-3years">
+                        <label for="member_1to3">1–3 years</label>
                     </div>
-                </div>
-
-                <div class="question">
-                    <label class="question-label">3. What are your main reasons for attending the Men's Shed?</label>
-                    <p class="question-note">(Tick all that apply)</p>
-                    <div class="checkbox-group">
-                        <div class="checkbox-wrapper">
-                            <input type="checkbox" id="q3a" name="reasons" value="social_connection" checked>
-                            <label for="q3a">Social connection</label>
-                        </div>
-                        <div class="checkbox-wrapper">
-                            <input type="checkbox" id="q3b" name="reasons" value="friendship" checked>
-                            <label for="q3b">Friendship</label>
-                        </div>
-                        <div class="checkbox-wrapper">
-                            <input type="checkbox" id="q3c" name="reasons" value="workshop" checked>
-                            <label for="q3c">Workshop activities</label>
-                        </div>
-                        <div class="checkbox-wrapper">
-                            <input type="checkbox" id="q3d" name="reasons" value="learning">
-                            <label for="q3d">Learning new skills</label>
-                        </div>
-                        <div class="checkbox-wrapper">
-                            <input type="checkbox" id="q3e" name="reasons" value="helping" checked>
-                            <label for="q3e">Helping others</label>
-                        </div>
-                        <div class="checkbox-wrapper">
-                            <input type="checkbox" id="q3f" name="reasons" value="relaxation" checked>
-                            <label for="q3f">Relaxation</label>
-                        </div>
-                        <div class="checkbox-wrapper">
-                            <input type="checkbox" id="q3g" name="reasons" value="wellbeing">
-                            <label for="q3g">Mental wellbeing</label>
-                        </div>
-                        <div class="checkbox-wrapper">
-                            <input type="checkbox" id="q3h" name="reasons" value="physical">
-                            <label for="q3h">Physical activity</label>
-                        </div>
-                        <div class="checkbox-wrapper">
-                            <input type="checkbox" id="q3i" name="reasons" value="community">
-                            <label for="q3i">Community involvement</label>
-                        </div>
-                        <div class="checkbox-wrapper">
-                            <input type="checkbox" id="q3j" name="reasons" value="teaching">
-                            <label for="q3j">Teaching or mentoring</label>
-                        </div>
+                    <div class="radio-item">
+                        <input type="radio" id="member_4to7" name="membership_duration" value="4-7years">
+                        <label for="member_4to7">4–7 years</label>
                     </div>
-                </div>
-
-                <div class="question">
-                    <label class="question-label">4. What first attracted you to the Shed and what keeps you coming back?</label>
-                    <textarea name="q4_attraction" placeholder="Your thoughts..." maxlength="200">The welcoming atmosphere and workshop facilities. Great community.</textarea>
-                </div>
-
-                <div class="question">
-                    <label class="question-label">5. What's a good day at the Shed for you and what would make it even better?</label>
-                    <textarea name="q5_good_day" placeholder="Your thoughts..." maxlength="200">Working on a project with others present. Good tea breaks help.</textarea>
-                </div>
-
-                <div class="question">
-                    <label class="question-label">6. What limits your enjoyment or participation, particularly if you don't attend regularly?</label>
-                    <p class="question-note">(Tick all that apply)</p>
-                    <div class="checkbox-group">
-                        <div class="checkbox-wrapper">
-                            <input type="checkbox" id="q6a" name="limits" value="space" checked>
-                            <label for="q6a">Lack of space</label>
-                        </div>
-                        <div class="checkbox-wrapper">
-                            <input type="checkbox" id="q6b" name="limits" value="temperature" checked>
-                            <label for="q6b">Heat/cold</label>
-                        </div>
-                        <div class="checkbox-wrapper">
-                            <input type="checkbox" id="q6c" name="limits" value="noise">
-                            <label for="q6c">Noise</label>
-                        </div>
-                        <div class="checkbox-wrapper">
-                            <input type="checkbox" id="q6d" name="limits" value="accessibility">
-                            <label for="q6d">Accessibility</label>
-                        </div>
-                        <div class="checkbox-wrapper">
-                            <input type="checkbox" id="q6e" name="limits" value="parking">
-                            <label for="q6e">Parking</label>
-                        </div>
-                        <div class="checkbox-wrapper">
-                            <input type="checkbox" id="q6f" name="limits" value="activities">
-                            <label for="q6f">Limited activities of interest</label>
-                        </div>
-                        <div class="checkbox-wrapper">
-                            <input type="checkbox" id="q6g" name="limits" value="disconnected">
-                            <label for="q6g">Feeling disconnected/lack of friendliness</label>
-                        </div>
-                        <div class="checkbox-wrapper">
-                            <input type="checkbox" id="q6h" name="limits" value="equipment">
-                            <label for="q6h">Insufficient equipment</label>
-                        </div>
-                        <div class="checkbox-wrapper">
-                            <input type="checkbox" id="q6i" name="limits" value="scheduling" checked>
-                            <label for="q6i">Scheduling</label>
-                        </div>
-                        <div class="checkbox-wrapper">
-                            <input type="checkbox" id="q6j" name="limits" value="work" checked>
-                            <label for="q6j">Work commitments</label>
-                        </div>
-                        <div class="checkbox-wrapper">
-                            <input type="checkbox" id="q6k" name="limits" value="family">
-                            <label for="q6k">Family commitments</label>
-                        </div>
-                        <div class="checkbox-wrapper">
-                            <input type="checkbox" id="q6l" name="limits" value="timing">
-                            <label for="q6l">Timing</label>
-                        </div>
-                        <div class="checkbox-wrapper">
-                            <input type="checkbox" id="q6m" name="limits" value="people">
-                            <label for="q6m">Don't know many people</label>
-                        </div>
-                        <div class="checkbox-wrapper">
-                            <input type="checkbox" id="q6n" name="limits" value="health">
-                            <label for="q6n">Health</label>
-                        </div>
-                        <div class="checkbox-wrapper">
-                            <input type="checkbox" id="q6o" name="limits" value="transport">
-                            <label for="q6o">Transport</label>
-                        </div>
+                    <div class="radio-item">
+                        <input type="radio" id="member_8to10" name="membership_duration" value="8-10years">
+                        <label for="member_8to10">8–10 years</label>
+                    </div>
+                    <div class="radio-item">
+                        <input type="radio" id="member_over10" name="membership_duration" value="over_10years">
+                        <label for="member_over10">More than 10 years</label>
                     </div>
                 </div>
             </div>
 
-            <!-- Section 2: Your Experiences -->
-            <div class="section">
-                <div class="section-number">Section 2</div>
-                <h2 class="section-title">Your Experiences at the Shed</h2>
-
-                <!-- CHOICE -->
-                <div style="margin-bottom: 45px; padding-bottom: 30px; border-bottom: 2px solid var(--accent);">
-                    <h3 style="font-size: 18px; color: var(--accent); margin-bottom: 20px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px;">Choice</h3>
-
-                    <div class="question">
-                        <label class="question-label">1. How important is having a variety of activities available at the Shed?</label>
-                        <div class="rating-group">
-                            <div class="rating-scale">
-                                <button type="button" class="rating-btn" data-rating="1" data-name="choice_variety">1</button>
-                                <button type="button" class="rating-btn" data-rating="2" data-name="choice_variety">2</button>
-                                <button type="button" class="rating-btn" data-rating="3" data-name="choice_variety">3</button>
-                                <button type="button" class="rating-btn" data-rating="4" data-name="choice_variety">4</button>
-                                <button type="button" class="rating-btn" data-rating="5" data-name="choice_variety">5</button>
-                            </div>
-                            <input type="hidden" name="choice_variety" id="choice_variety" value="">
-                        </div>
-                        <div class="rating-labels">
-                            <span>Not Important</span>
-                            <span>Extremely Important</span>
-                        </div>
+            <div class="form-group">
+                <label>How often do you attend the Men's Shed?</label>
+                <div class="radio-group">
+                    <div class="radio-item">
+                        <input type="radio" id="attend_more1pw" name="attendance_frequency" value="more_1pw">
+                        <label for="attend_more1pw">More than once a week</label>
                     </div>
-
-                    <div class="question">
-                        <label class="question-label">2. How important is flexibility in how members participate?</label>
-                        <div class="rating-group">
-                            <div class="rating-scale">
-                                <button type="button" class="rating-btn" data-rating="1" data-name="choice_flexibility">1</button>
-                                <button type="button" class="rating-btn" data-rating="2" data-name="choice_flexibility">2</button>
-                                <button type="button" class="rating-btn" data-rating="3" data-name="choice_flexibility">3</button>
-                                <button type="button" class="rating-btn" data-rating="4" data-name="choice_flexibility">4</button>
-                                <button type="button" class="rating-btn" data-rating="5" data-name="choice_flexibility">5</button>
-                            </div>
-                            <input type="hidden" name="choice_flexibility" id="choice_flexibility" value="">
-                        </div>
-                        <div class="rating-labels">
-                            <span>Not Important</span>
-                            <span>Extremely Important</span>
-                        </div>
+                    <div class="radio-item">
+                        <input type="radio" id="attend_weekly" name="attendance_frequency" value="weekly">
+                        <label for="attend_weekly">Weekly</label>
                     </div>
-
-                    <div class="question">
-                        <label class="question-label">3. Are there additional activities or projects you would personally like to see or be involved in?</label>
-                        <textarea name="choice_activities" placeholder="Your ideas..." maxlength="200">More metalworking and smaller hobby projects would be great.</textarea>
+                    <div class="radio-item">
+                        <input type="radio" id="attend_fort" name="attendance_frequency" value="fortnightly">
+                        <label for="attend_fort">Fortnightly</label>
                     </div>
-
-                    <div class="question">
-                        <label class="question-label">4. How could the Shed better cater for different interests, abilities or comfort levels? (e.g. timings, groups, external activities)</label>
-                        <textarea name="choice_cater" placeholder="Your suggestions..." maxlength="200">Separate beginner and advanced sessions. Weekend options needed.</textarea>
+                    <div class="radio-item">
+                        <input type="radio" id="attend_monthly" name="attendance_frequency" value="monthly">
+                        <label for="attend_monthly">Monthly</label>
+                    </div>
+                    <div class="radio-item">
+                        <input type="radio" id="attend_occ" name="attendance_frequency" value="occasionally">
+                        <label for="attend_occ">Occasionally/rarely</label>
+                    </div>
+                    <div class="radio-item">
+                        <input type="radio" id="attend_never" name="attendance_frequency" value="never">
+                        <label for="attend_never">I have not attended since joining</label>
                     </div>
                 </div>
+            </div>
 
-                <!-- CONNECTION -->
-                <div style="margin-bottom: 45px; padding-bottom: 30px; border-bottom: 2px solid var(--accent);">
-                    <h3 style="font-size: 18px; color: var(--accent); margin-bottom: 20px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px;">Connection</h3>
-
-                    <div class="question">
-                        <label class="question-label">1. How important is connection and social interaction to your experience at the Shed?</label>
-                        <div class="rating-group">
-                            <div class="rating-scale">
-                                <button type="button" class="rating-btn" data-rating="1" data-name="connection_importance">1</button>
-                                <button type="button" class="rating-btn" data-rating="2" data-name="connection_importance">2</button>
-                                <button type="button" class="rating-btn" data-rating="3" data-name="connection_importance">3</button>
-                                <button type="button" class="rating-btn" data-rating="4" data-name="connection_importance">4</button>
-                                <button type="button" class="rating-btn" data-rating="5" data-name="connection_importance">5</button>
-                            </div>
-                            <input type="hidden" name="connection_importance" id="connection_importance" value="">
-                        </div>
-                        <div class="rating-labels">
-                            <span>Not Important</span>
-                            <span>Extremely Important</span>
-                        </div>
+            <div class="form-group">
+                <label>What are your main reasons for attending the Men's Shed?</label>
+                <div class="checkbox-list">
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="reason_social" name="reasons" value="social">
+                        <label for="reason_social">Social connection</label>
                     </div>
-
-                    <div class="question">
-                        <label class="question-label">2. What helps members connect most effectively at the Shed?</label>
-                        <textarea name="connection_helps" placeholder="Your observations..." maxlength="200">Tea breaks and informal chat while working. Central gathering spot.</textarea>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="reason_friend" name="reasons" value="friendship">
+                        <label for="reason_friend">Friendship</label>
                     </div>
-
-                    <div class="question">
-                        <label class="question-label">3. What could improve connection between members?</label>
-                        <textarea name="connection_improve" placeholder="Your ideas..." maxlength="200">Monthly social events. Online chat group for updates.</textarea>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="reason_workshop" name="reasons" value="workshop">
+                        <label for="reason_workshop">Workshop activities</label>
                     </div>
-                </div>
-
-                <!-- FRIENDSHIP -->
-                <div style="margin-bottom: 45px; padding-bottom: 30px; border-bottom: 2px solid var(--accent);">
-                    <h3 style="font-size: 18px; color: var(--accent); margin-bottom: 20px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px;">Friendship</h3>
-
-                    <div class="question">
-                        <label class="question-label">1. How important is friendship and belonging within the Men's Shed?</label>
-                        <div class="rating-group">
-                            <div class="rating-scale">
-                                <button type="button" class="rating-btn" data-rating="1" data-name="friendship_importance">1</button>
-                                <button type="button" class="rating-btn" data-rating="2" data-name="friendship_importance">2</button>
-                                <button type="button" class="rating-btn" data-rating="3" data-name="friendship_importance">3</button>
-                                <button type="button" class="rating-btn" data-rating="4" data-name="friendship_importance">4</button>
-                                <button type="button" class="rating-btn" data-rating="5" data-name="friendship_importance">5</button>
-                            </div>
-                            <input type="hidden" name="friendship_importance" id="friendship_importance" value="">
-                        </div>
-                        <div class="rating-labels">
-                            <span>Not Important</span>
-                            <span>Extremely Important</span>
-                        </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="reason_learn" name="reasons" value="learning">
+                        <label for="reason_learn">Learning new skills</label>
                     </div>
-
-                    <div class="question">
-                        <label class="question-label">2. Do you feel welcomed and included at the Shed?</label>
-                        <div class="rating-group">
-                            <div class="rating-scale">
-                                <button type="button" class="rating-btn" data-rating="1" data-name="friendship_welcomed">1</button>
-                                <button type="button" class="rating-btn" data-rating="2" data-name="friendship_welcomed">2</button>
-                                <button type="button" class="rating-btn" data-rating="3" data-name="friendship_welcomed">3</button>
-                                <button type="button" class="rating-btn" data-rating="4" data-name="friendship_welcomed">4</button>
-                                <button type="button" class="rating-btn" data-rating="5" data-name="friendship_welcomed">5</button>
-                            </div>
-                            <input type="hidden" name="friendship_welcomed" id="friendship_welcomed" value="">
-                        </div>
-                        <div class="rating-labels">
-                            <span>Not At All</span>
-                            <span>Completely</span>
-                        </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="reason_help" name="reasons" value="helping">
+                        <label for="reason_help">Helping others</label>
                     </div>
-
-                    <div class="question">
-                        <label class="question-label">3. How could the Shed strengthen friendships and relationships?</label>
-                        <textarea name="friendship_strengthen" placeholder="Your ideas..." maxlength="200">Recognize long-term members. Share project stories.</textarea>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="reason_relax" name="reasons" value="relaxation">
+                        <label for="reason_relax">Relaxation</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="reason_wellbeing" name="reasons" value="wellbeing">
+                        <label for="reason_wellbeing">Mental wellbeing</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="reason_activity" name="reasons" value="activity">
+                        <label for="reason_activity">Physical activity</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="reason_community" name="reasons" value="community">
+                        <label for="reason_community">Community involvement</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="reason_teach" name="reasons" value="teaching">
+                        <label for="reason_teach">Teaching or mentoring</label>
                     </div>
                 </div>
+            </div>
 
-                <!-- RELAXATION -->
-                <div style="margin-bottom: 45px; padding-bottom: 30px; border-bottom: 2px solid var(--accent);">
-                    <h3 style="font-size: 18px; color: var(--accent); margin-bottom: 20px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px;">Relaxation</h3>
+            <div class="form-group">
+                <label for="q4_attraction">What first attracted you to the Shed and what keeps you coming back?</label>
+                <textarea id="q4_attraction" name="q4_attraction"></textarea>
+            </div>
 
-                    <div class="question">
-                        <label class="question-label">1. Does the Shed provide you with a place to relax and enjoy yourself?</label>
-                        <div class="rating-group">
-                            <div class="rating-scale">
-                                <button type="button" class="rating-btn" data-rating="1" data-name="relax_provides">1</button>
-                                <button type="button" class="rating-btn" data-rating="2" data-name="relax_provides">2</button>
-                                <button type="button" class="rating-btn" data-rating="3" data-name="relax_provides">3</button>
-                                <button type="button" class="rating-btn" data-rating="4" data-name="relax_provides">4</button>
-                                <button type="button" class="rating-btn" data-rating="5" data-name="relax_provides">5</button>
-                            </div>
-                            <input type="hidden" name="relax_provides" id="relax_provides" value="">
-                        </div>
-                        <div class="rating-labels">
-                            <span>Not At All</span>
-                            <span>Very Much</span>
-                        </div>
+            <div class="form-group">
+                <label for="q5_good_day">What's a good day at the Shed for you and what would make it even better?</label>
+                <textarea id="q5_good_day" name="q5_good_day"></textarea>
+            </div>
+
+            <div class="form-group">
+                <label>What limits your enjoyment or participation, particularly if you don't attend regularly?</label>
+                <div class="checkbox-list">
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="limit_space" name="limits" value="space">
+                        <label for="limit_space">Lack of space</label>
                     </div>
-
-                    <div class="question">
-                        <label class="question-label">2. Does the current environment feel comfortable and enjoyable?</label>
-                        <div class="rating-group">
-                            <div class="rating-scale">
-                                <button type="button" class="rating-btn" data-rating="1" data-name="relax_environment">1</button>
-                                <button type="button" class="rating-btn" data-rating="2" data-name="relax_environment">2</button>
-                                <button type="button" class="rating-btn" data-rating="3" data-name="relax_environment">3</button>
-                                <button type="button" class="rating-btn" data-rating="4" data-name="relax_environment">4</button>
-                                <button type="button" class="rating-btn" data-rating="5" data-name="relax_environment">5</button>
-                            </div>
-                            <input type="hidden" name="relax_environment" id="relax_environment" value="">
-                        </div>
-                        <div class="rating-labels">
-                            <span>Not At All</span>
-                            <span>Very Much</span>
-                        </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="limit_temp" name="limits" value="temp">
+                        <label for="limit_temp">Heat/cold</label>
                     </div>
-
-                    <div class="question">
-                        <label class="question-label">3. Would outdoor, quiet or social spaces improve your experience? How?</label>
-                        <textarea name="relax_spaces" placeholder="Your ideas..." maxlength="200">Outdoor covered area for warm months. Quieter corner indoors.</textarea>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="limit_noise" name="limits" value="noise">
+                        <label for="limit_noise">Noise</label>
                     </div>
-                </div>
-
-                <!-- GROWTH -->
-                <div style="margin-bottom: 45px; padding-bottom: 30px; border-bottom: 2px solid var(--accent);">
-                    <h3 style="font-size: 18px; color: var(--accent); margin-bottom: 20px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px;">Growth</h3>
-
-                    <div class="question">
-                        <label class="question-label">1. How important are personal learning opportunities within the Shed?</label>
-                        <div class="rating-group">
-                            <div class="rating-scale">
-                                <button type="button" class="rating-btn" data-rating="1" data-name="growth_learning">1</button>
-                                <button type="button" class="rating-btn" data-rating="2" data-name="growth_learning">2</button>
-                                <button type="button" class="rating-btn" data-rating="3" data-name="growth_learning">3</button>
-                                <button type="button" class="rating-btn" data-rating="4" data-name="growth_learning">4</button>
-                                <button type="button" class="rating-btn" data-rating="5" data-name="growth_learning">5</button>
-                            </div>
-                            <input type="hidden" name="growth_learning" id="growth_learning" value="">
-                        </div>
-                        <div class="rating-labels">
-                            <span>Not Important</span>
-                            <span>Extremely Important</span>
-                        </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="limit_access" name="limits" value="access">
+                        <label for="limit_access">Accessibility</label>
                     </div>
-
-                    <div class="question">
-                        <label class="question-label">2. Would you participate in additional mentoring, training or skills-sharing opportunities?</label>
-                        <div class="radio-group">
-                            <div class="radio-wrapper">
-                                <input type="radio" id="q_growth2a" name="growth_participate" value="yes" checked>
-                                <label for="q_growth2a">Yes</label>
-                            </div>
-                            <div class="radio-wrapper">
-                                <input type="radio" id="q_growth2b" name="growth_participate" value="no">
-                                <label for="q_growth2b">No</label>
-                            </div>
-                            <div class="radio-wrapper">
-                                <input type="radio" id="q_growth2c" name="growth_participate" value="maybe">
-                                <label for="q_growth2c">Maybe</label>
-                            </div>
-                        </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="limit_parking" name="limits" value="parking">
+                        <label for="limit_parking">Parking</label>
                     </div>
-
-                    <div class="question">
-                        <label class="question-label">3. Are there things you would like to learn, try or get involved in at the Shed?</label>
-                        <textarea name="growth_learn" placeholder="Your interests..." maxlength="200">Finishing skills. Box making. Decorative projects.</textarea>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="limit_activities" name="limits" value="activities">
+                        <label for="limit_activities">Limited activities of interest</label>
                     </div>
-
-                    <div class="question">
-                        <label class="question-label">4. Would you like to see mentoring, teaching or skills transfer between members? Please provide examples.</label>
-                        <textarea name="growth_mentoring" placeholder="Your examples..." maxlength="200">Hand tool sharpening. Joinery techniques. Wood selection.</textarea>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="limit_comm" name="limits" value="comm">
+                        <label for="limit_comm">Communication issues</label>
                     </div>
-
-                    <div class="question">
-                        <label class="question-label">5. Do you possess skills or experiences you would personally like to share with others? Please provide examples.</label>
-                        <textarea name="growth_share" placeholder="Your skills..." maxlength="200">Hand tools knowledge. Timber properties. Practical advice.</textarea>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="limit_fitting" name="limits" value="fitting">
+                        <label for="limit_fitting">Difficulty fitting in</label>
                     </div>
-
-                    <div class="question">
-                        <label class="question-label">6. What would encourage you to come along more often?</label>
-                        <textarea name="growth_encourage" placeholder="Your thoughts..." maxlength="200">Clear project schedule. Better ventilation. Member updates.</textarea>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="limit_welcome" name="limits" value="welcome">
+                        <label for="limit_welcome">Not feeling welcomed</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="limit_groups" name="limits" value="groups">
+                        <label for="limit_groups">Established friendship/social groups</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="limit_equipment" name="limits" value="equipment">
+                        <label for="limit_equipment">Insufficient equipment</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="limit_sched" name="limits" value="sched">
+                        <label for="limit_sched">Scheduling</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="limit_work" name="limits" value="work">
+                        <label for="limit_work">Work commitments</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="limit_family" name="limits" value="family">
+                        <label for="limit_family">Family commitments</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="limit_time" name="limits" value="time">
+                        <label for="limit_time">Timing</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="limit_health" name="limits" value="health">
+                        <label for="limit_health">Health</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="limit_transport" name="limits" value="transport">
+                        <label for="limit_transport">Transport</label>
                     </div>
                 </div>
+            </div>
 
-                <!-- ENJOYMENT -->
-                <div style="margin-bottom: 45px;">
-                    <h3 style="font-size: 18px; color: var(--accent); margin-bottom: 20px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px;">Enjoyment</h3>
+            <!-- Section 2: Expectations -->
+            <h2 class="section-title">Section 2 — Your Expectations at the Shed</h2>
 
-                    <div class="question">
-                        <label class="question-label">1. How much enjoyment do you get/or would expect from attending the Shed?</label>
-                        <div class="rating-group">
-                            <div class="rating-scale">
-                                <button type="button" class="rating-btn" data-rating="1" data-name="enjoyment_amount">1</button>
-                                <button type="button" class="rating-btn" data-rating="2" data-name="enjoyment_amount">2</button>
-                                <button type="button" class="rating-btn" data-rating="3" data-name="enjoyment_amount">3</button>
-                                <button type="button" class="rating-btn" data-rating="4" data-name="enjoyment_amount">4</button>
-                                <button type="button" class="rating-btn" data-rating="5" data-name="enjoyment_amount">5</button>
-                            </div>
-                            <input type="hidden" name="enjoyment_amount" id="enjoyment_amount" value="">
-                        </div>
-                        <div class="rating-labels">
-                            <span>None</span>
-                            <span>Lots</span>
-                        </div>
+            <h3 class="section-subtitle">Choice</h3>
+
+            <div class="form-group">
+                <label>How important is having a variety of activities available at the Shed?</label>
+                <div class="rating-labels">
+                    <span>Not Important</span>
+                    <span>Extremely Important</span>
+                </div>
+                <div class="rating-scale">
+                    <div class="rating-option">
+                        <input type="radio" id="var_1" name="choice_variety" value="1">
+                        <label for="var_1">1</label>
                     </div>
-
-                    <div class="question">
-                        <label class="question-label">2. What would make you personally want to spend more time at the Shed?</label>
-                        <textarea name="enjoyment_time" placeholder="Your ideas..." maxlength="200">Better comfort conditions. Display of member projects.</textarea>
+                    <div class="rating-option">
+                        <input type="radio" id="var_2" name="choice_variety" value="2">
+                        <label for="var_2">2</label>
                     </div>
-
-                    <div class="question">
-                        <label class="question-label">3. What things do you value most about the Men's Shed and would never want to lose?</label>
-                        <textarea name="enjoyment_value" placeholder="Your thoughts..." maxlength="200">The people and culture. Freedom to work at own pace.</textarea>
+                    <div class="rating-option">
+                        <input type="radio" id="var_3" name="choice_variety" value="3">
+                        <label for="var_3">3</label>
+                    </div>
+                    <div class="rating-option">
+                        <input type="radio" id="var_4" name="choice_variety" value="4">
+                        <label for="var_4">4</label>
+                    </div>
+                    <div class="rating-option">
+                        <input type="radio" id="var_5" name="choice_variety" value="5">
+                        <label for="var_5">5</label>
                     </div>
                 </div>
+            </div>
+
+            <div class="form-group">
+                <label>How important is flexibility in how members participate?</label>
+                <div class="rating-labels">
+                    <span>Not Important</span>
+                    <span>Extremely Important</span>
+                </div>
+                <div class="rating-scale">
+                    <div class="rating-option">
+                        <input type="radio" id="flex_1" name="choice_flexibility" value="1">
+                        <label for="flex_1">1</label>
+                    </div>
+                    <div class="rating-option">
+                        <input type="radio" id="flex_2" name="choice_flexibility" value="2">
+                        <label for="flex_2">2</label>
+                    </div>
+                    <div class="rating-option">
+                        <input type="radio" id="flex_3" name="choice_flexibility" value="3">
+                        <label for="flex_3">3</label>
+                    </div>
+                    <div class="rating-option">
+                        <input type="radio" id="flex_4" name="choice_flexibility" value="4">
+                        <label for="flex_4">4</label>
+                    </div>
+                    <div class="rating-option">
+                        <input type="radio" id="flex_5" name="choice_flexibility" value="5">
+                        <label for="flex_5">5</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="choice_activities">Are there additional activities or projects you would personally like to see or be involved in?</label>
+                <textarea id="choice_activities" name="choice_activities"></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="choice_cater">How could the Shed better cater for different interests, abilities or comfort levels? (e.g. timings, groups, external activities)</label>
+                <textarea id="choice_cater" name="choice_cater"></textarea>
+            </div>
+
+            <h3 class="section-subtitle">Connection</h3>
+
+            <div class="form-group">
+                <label>How important is connection and social interaction to your experience at the Shed?</label>
+                <div class="rating-labels">
+                    <span>Not Important</span>
+                    <span>Extremely Important</span>
+                </div>
+                <div class="rating-scale">
+                    <div class="rating-option">
+                        <input type="radio" id="conn_1" name="connection_importance" value="1">
+                        <label for="conn_1">1</label>
+                    </div>
+                    <div class="rating-option">
+                        <input type="radio" id="conn_2" name="connection_importance" value="2">
+                        <label for="conn_2">2</label>
+                    </div>
+                    <div class="rating-option">
+                        <input type="radio" id="conn_3" name="connection_importance" value="3">
+                        <label for="conn_3">3</label>
+                    </div>
+                    <div class="rating-option">
+                        <input type="radio" id="conn_4" name="connection_importance" value="4">
+                        <label for="conn_4">4</label>
+                    </div>
+                    <div class="rating-option">
+                        <input type="radio" id="conn_5" name="connection_importance" value="5">
+                        <label for="conn_5">5</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="connection_helps">What helps members connect most effectively at the Shed?</label>
+                <textarea id="connection_helps" name="connection_helps"></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="connection_improve">What could improve connection between members?</label>
+                <textarea id="connection_improve" name="connection_improve"></textarea>
+            </div>
+
+            <h3 class="section-subtitle">Friendship</h3>
+
+            <div class="form-group">
+                <label>How important is friendship and belonging within the Men's Shed?</label>
+                <div class="rating-labels">
+                    <span>Not Important</span>
+                    <span>Extremely Important</span>
+                </div>
+                <div class="rating-scale">
+                    <div class="rating-option">
+                        <input type="radio" id="friend_1" name="friendship_importance" value="1">
+                        <label for="friend_1">1</label>
+                    </div>
+                    <div class="rating-option">
+                        <input type="radio" id="friend_2" name="friendship_importance" value="2">
+                        <label for="friend_2">2</label>
+                    </div>
+                    <div class="rating-option">
+                        <input type="radio" id="friend_3" name="friendship_importance" value="3">
+                        <label for="friend_3">3</label>
+                    </div>
+                    <div class="rating-option">
+                        <input type="radio" id="friend_4" name="friendship_importance" value="4">
+                        <label for="friend_4">4</label>
+                    </div>
+                    <div class="rating-option">
+                        <input type="radio" id="friend_5" name="friendship_importance" value="5">
+                        <label for="friend_5">5</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Do you feel welcomed and included at the Shed?</label>
+                <div class="rating-labels">
+                    <span>Not Important</span>
+                    <span>Extremely Important</span>
+                </div>
+                <div class="rating-scale">
+                    <div class="rating-option">
+                        <input type="radio" id="welcome_1" name="friendship_welcomed" value="1">
+                        <label for="welcome_1">1</label>
+                    </div>
+                    <div class="rating-option">
+                        <input type="radio" id="welcome_2" name="friendship_welcomed" value="2">
+                        <label for="welcome_2">2</label>
+                    </div>
+                    <div class="rating-option">
+                        <input type="radio" id="welcome_3" name="friendship_welcomed" value="3">
+                        <label for="welcome_3">3</label>
+                    </div>
+                    <div class="rating-option">
+                        <input type="radio" id="welcome_4" name="friendship_welcomed" value="4">
+                        <label for="welcome_4">4</label>
+                    </div>
+                    <div class="rating-option">
+                        <input type="radio" id="welcome_5" name="friendship_welcomed" value="5">
+                        <label for="welcome_5">5</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="friendship_strengthen">How could the Shed strengthen friendships and relationships?</label>
+                <textarea id="friendship_strengthen" name="friendship_strengthen"></textarea>
+            </div>
+
+            <h3 class="section-subtitle">Relaxation</h3>
+
+            <div class="form-group">
+                <label>Does the Shed provide you with a place to relax and enjoy yourself?</label>
+                <div class="rating-labels">
+                    <span>Not Important</span>
+                    <span>Extremely Important</span>
+                </div>
+                <div class="rating-scale">
+                    <div class="rating-option">
+                        <input type="radio" id="relax_1" name="relax_provides" value="1">
+                        <label for="relax_1">1</label>
+                    </div>
+                    <div class="rating-option">
+                        <input type="radio" id="relax_2" name="relax_provides" value="2">
+                        <label for="relax_2">2</label>
+                    </div>
+                    <div class="rating-option">
+                        <input type="radio" id="relax_3" name="relax_provides" value="3">
+                        <label for="relax_3">3</label>
+                    </div>
+                    <div class="rating-option">
+                        <input type="radio" id="relax_4" name="relax_provides" value="4">
+                        <label for="relax_4">4</label>
+                    </div>
+                    <div class="rating-option">
+                        <input type="radio" id="relax_5" name="relax_provides" value="5">
+                        <label for="relax_5">5</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Does the current environment feel comfortable and enjoyable?</label>
+                <div class="rating-labels">
+                    <span>Not Important</span>
+                    <span>Extremely Important</span>
+                </div>
+                <div class="rating-scale">
+                    <div class="rating-option">
+                        <input type="radio" id="env_1" name="relax_environment" value="1">
+                        <label for="env_1">1</label>
+                    </div>
+                    <div class="rating-option">
+                        <input type="radio" id="env_2" name="relax_environment" value="2">
+                        <label for="env_2">2</label>
+                    </div>
+                    <div class="rating-option">
+                        <input type="radio" id="env_3" name="relax_environment" value="3">
+                        <label for="env_3">3</label>
+                    </div>
+                    <div class="rating-option">
+                        <input type="radio" id="env_4" name="relax_environment" value="4">
+                        <label for="env_4">4</label>
+                    </div>
+                    <div class="rating-option">
+                        <input type="radio" id="env_5" name="relax_environment" value="5">
+                        <label for="env_5">5</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="relax_spaces">Would outdoor, quiet or social spaces improve your experience? How?</label>
+                <textarea id="relax_spaces" name="relax_spaces"></textarea>
+            </div>
+
+            <h3 class="section-subtitle">Growth</h3>
+
+            <div class="form-group">
+                <label>How important are personal learning opportunities within the Shed?</label>
+                <div class="rating-labels">
+                    <span>Not Important</span>
+                    <span>Extremely Important</span>
+                </div>
+                <div class="rating-scale">
+                    <div class="rating-option">
+                        <input type="radio" id="growth_1" name="growth_learning" value="1">
+                        <label for="growth_1">1</label>
+                    </div>
+                    <div class="rating-option">
+                        <input type="radio" id="growth_2" name="growth_learning" value="2">
+                        <label for="growth_2">2</label>
+                    </div>
+                    <div class="rating-option">
+                        <input type="radio" id="growth_3" name="growth_learning" value="3">
+                        <label for="growth_3">3</label>
+                    </div>
+                    <div class="rating-option">
+                        <input type="radio" id="growth_4" name="growth_learning" value="4">
+                        <label for="growth_4">4</label>
+                    </div>
+                    <div class="rating-option">
+                        <input type="radio" id="growth_5" name="growth_learning" value="5">
+                        <label for="growth_5">5</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Would you participate in additional mentoring, training or skills-sharing opportunities?</label>
+                <div class="radio-group">
+                    <div class="radio-item">
+                        <input type="radio" id="mentor_yes" name="growth_participate" value="yes">
+                        <label for="mentor_yes">Yes</label>
+                    </div>
+                    <div class="radio-item">
+                        <input type="radio" id="mentor_no" name="growth_participate" value="no">
+                        <label for="mentor_no">No</label>
+                    </div>
+                    <div class="radio-item">
+                        <input type="radio" id="mentor_maybe" name="growth_participate" value="maybe">
+                        <label for="mentor_maybe">Maybe</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="growth_learn">Are there things you would like to learn, try or get involved in at the Shed?</label>
+                <textarea id="growth_learn" name="growth_learn"></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="growth_mentoring">Would you like to see mentoring, teaching or skills transfer between members? Please provide examples.</label>
+                <textarea id="growth_mentoring" name="growth_mentoring"></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="growth_share">Do you possess skills or experiences you would personally like to share with others? Please provide examples.</label>
+                <textarea id="growth_share" name="growth_share"></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="growth_encourage">What would encourage you to come along more often?</label>
+                <textarea id="growth_encourage" name="growth_encourage"></textarea>
+            </div>
+
+            <h3 class="section-subtitle">Enjoyment</h3>
+
+            <div class="form-group">
+                <label>How much enjoyment do you get/or would expect from attending the Shed?</label>
+                <div class="rating-labels">
+                    <span>Not Important</span>
+                    <span>Extremely Important</span>
+                </div>
+                <div class="rating-scale">
+                    <div class="rating-option">
+                        <input type="radio" id="enjoy_1" name="enjoyment_amount" value="1">
+                        <label for="enjoy_1">1</label>
+                    </div>
+                    <div class="rating-option">
+                        <input type="radio" id="enjoy_2" name="enjoyment_amount" value="2">
+                        <label for="enjoy_2">2</label>
+                    </div>
+                    <div class="rating-option">
+                        <input type="radio" id="enjoy_3" name="enjoyment_amount" value="3">
+                        <label for="enjoy_3">3</label>
+                    </div>
+                    <div class="rating-option">
+                        <input type="radio" id="enjoy_4" name="enjoyment_amount" value="4">
+                        <label for="enjoy_4">4</label>
+                    </div>
+                    <div class="rating-option">
+                        <input type="radio" id="enjoy_5" name="enjoyment_amount" value="5">
+                        <label for="enjoy_5">5</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="enjoyment_time">What would make you personally want to spend more time at the Shed?</label>
+                <textarea id="enjoyment_time" name="enjoyment_time"></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="enjoyment_value">What things do you value most about the Men's Shed and would never want to lose?</label>
+                <textarea id="enjoyment_value" name="enjoyment_value"></textarea>
             </div>
 
             <!-- Section 3: Future Improvements -->
-            <div class="section">
-                <div class="section-number">Section 3</div>
-                <h2 class="section-title">Future Improvements</h2>
+            <h2 class="section-title">Section 3 — Future Improvements</h2>
 
-                <div class="question">
-                    <label class="question-label">1. What sort of future improvements or facilities would you most value?</label>
-                    <p class="question-note">(Select up to 5)</p>
-                    <div class="checkbox-group">
-                        <div class="checkbox-wrapper">
-                            <input type="checkbox" id="q_fut1a" name="improvements" value="workshop" checked>
-                            <label for="q_fut1a">Larger workshop areas</label>
-                        </div>
-                        <div class="checkbox-wrapper">
-                            <input type="checkbox" id="q_fut1b" name="improvements" value="kitchen" checked>
-                            <label for="q_fut1b">Improved kitchen/social space</label>
-                        </div>
-                        <div class="checkbox-wrapper">
-                            <input type="checkbox" id="q_fut1c" name="improvements" value="outdoor" checked>
-                            <label for="q_fut1c">Outdoor areas with seating</label>
-                        </div>
-                        <div class="checkbox-wrapper">
-                            <input type="checkbox" id="q_fut1d" name="improvements" value="ventilation" checked>
-                            <label for="q_fut1d">Better ventilation or cooling</label>
-                        </div>
-                        <div class="checkbox-wrapper">
-                            <input type="checkbox" id="q_fut1e" name="improvements" value="storage">
-                            <label for="q_fut1e">More storage/project space</label>
-                        </div>
-                        <div class="checkbox-wrapper">
-                            <input type="checkbox" id="q_fut1f" name="improvements" value="quiet" checked>
-                            <label for="q_fut1f">Quiet spaces</label>
-                        </div>
-                        <div class="checkbox-wrapper">
-                            <input type="checkbox" id="q_fut1g" name="improvements" value="meeting">
-                            <label for="q_fut1g">Meeting rooms/area</label>
-                        </div>
-                        <div class="checkbox-wrapper">
-                            <input type="checkbox" id="q_fut1h" name="improvements" value="training">
-                            <label for="q_fut1h">Training or classroom space</label>
-                        </div>
-                        <div class="checkbox-wrapper">
-                            <input type="checkbox" id="q_fut1i" name="improvements" value="accessibility">
-                            <label for="q_fut1i">Improved accessibility</label>
-                        </div>
-                        <div class="checkbox-wrapper">
-                            <input type="checkbox" id="q_fut1j" name="improvements" value="parking">
-                            <label for="q_fut1j">Parking improvements</label>
-                        </div>
-                        <div class="checkbox-wrapper">
-                            <input type="checkbox" id="q_fut1k" name="improvements" value="event">
-                            <label for="q_fut1k">Community event space</label>
-                        </div>
-                        <div class="checkbox-wrapper">
-                            <input type="checkbox" id="q_fut1l" name="improvements" value="equipment">
-                            <label for="q_fut1l">Modern equipment or tools</label>
-                        </div>
-                        <div class="checkbox-wrapper">
-                            <input type="checkbox" id="q_fut1m" name="improvements" value="garden">
-                            <label for="q_fut1m">Garden areas</label>
-                        </div>
+            <div class="form-group">
+                <label>What sort of future improvements or facilities would you most value? (Select up to 5)</label>
+                <div class="checkbox-list">
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="impr_workshop" name="improvements" value="workshop">
+                        <label for="impr_workshop">Larger workshop areas</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="impr_kitchen" name="improvements" value="kitchen">
+                        <label for="impr_kitchen">Improved kitchen/social space</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="impr_outdoor" name="improvements" value="outdoor">
+                        <label for="impr_outdoor">Outdoor areas with seating</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="impr_ventilation" name="improvements" value="ventilation">
+                        <label for="impr_ventilation">Better ventilation or cooling</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="impr_storage" name="improvements" value="storage">
+                        <label for="impr_storage">More storage/project space</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="impr_quiet" name="improvements" value="quiet">
+                        <label for="impr_quiet">Quiet spaces</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="impr_meeting" name="improvements" value="meeting">
+                        <label for="impr_meeting">Meeting rooms/area</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="impr_training" name="improvements" value="training">
+                        <label for="impr_training">Training or classroom space</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="impr_access" name="improvements" value="access">
+                        <label for="impr_access">Improved accessibility</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="impr_parking" name="improvements" value="parking">
+                        <label for="impr_parking">Parking improvements</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="impr_event" name="improvements" value="event">
+                        <label for="impr_event">Community event space</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="impr_equipment" name="improvements" value="equipment">
+                        <label for="impr_equipment">Modern equipment or tools</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="impr_garden" name="improvements" value="garden">
+                        <label for="impr_garden">Garden areas</label>
                     </div>
                 </div>
+            </div>
 
-                <div class="question">
-                    <label class="question-label">2. What current issues or limitations reduce your enjoyment or participation?</label>
-                    <textarea name="improvements_issues" placeholder="Your feedback..." maxlength="200">Space constraints. Temperature control. Limited storage.</textarea>
-                </div>
+            <div class="form-group">
+                <label for="improvements_issues">What current issues or limitations reduce your enjoyment or participation?</label>
+                <textarea id="improvements_issues" name="improvements_issues"></textarea>
+            </div>
 
-                <div class="question">
-                    <label class="question-label">3. Is there anything else you would like considered as part of future redevelopment planning?</label>
-                    <textarea name="improvements_other" placeholder="Your suggestions..." maxlength="200">Lighting improvements. Better hand tools. Welcoming decor.</textarea>
-                </div>
+            <div class="form-group">
+                <label for="improvements_other">Is there anything else you would like considered as part of future redevelopment planning?</label>
+                <textarea id="improvements_other" name="improvements_other"></textarea>
             </div>
 
             <!-- Section 4: Looking Ahead -->
-            <div class="section">
-                <div class="section-number">Section 4</div>
-                <h2 class="section-title">Looking Ahead</h2>
+            <h2 class="section-title">Section 4 — Looking Ahead</h2>
 
-                <div class="question">
-                    <label class="question-label">1. What is the biggest opportunity for the future of the Shed?</label>
-                    <textarea name="future_opportunity" placeholder="Your thoughts..." maxlength="200">Growing membership. Engaging casual members effectively.</textarea>
-                </div>
+            <div class="form-group">
+                <label for="future_opportunity">What is the biggest opportunity for the future of the Shed?</label>
+                <textarea id="future_opportunity" name="future_opportunity"></textarea>
+            </div>
 
-                <div class="question">
-                    <label class="question-label">2. What concerns you most about the future of the Shed?</label>
-                    <textarea name="future_concerns" placeholder="Your thoughts..." maxlength="200">Losing welcoming culture. Equipment maintenance costs.</textarea>
-                </div>
+            <div class="form-group">
+                <label for="future_concerns">What concerns you most about the future of the Shed?</label>
+                <textarea id="future_concerns" name="future_concerns"></textarea>
+            </div>
 
-                <div class="question">
-                    <label class="question-label">3. If you could change one thing to make the Men's Shed a place you would choose to spend more time at, what would it be?</label>
-                    <textarea name="future_one_thing" placeholder="Your idea..." maxlength="200">Climate control - heating in winter and cooling in summer.</textarea>
-                </div>
+            <div class="form-group">
+                <label for="future_one_thing">If you could change one thing to make the Men's Shed a place you would choose to spend more time at, what would it be?</label>
+                <textarea id="future_one_thing" name="future_one_thing"></textarea>
             </div>
 
             <!-- Section 5: Final Thoughts -->
-            <div class="section">
-                <div class="section-number">Section 5</div>
-                <h2 class="section-title">Final Thoughts</h2>
-                <p class="section-desc">While this survey is structured around the Men's Shed Vision Themes, we also value any additional matters, concerns, ideas or opportunities you believe are important.</p>
+            <h2 class="section-title">Section 5 — Final Thoughts</h2>
 
-                <div class="question">
-                    <label class="question-label">1. Are there additional wellbeing, support or social initiatives the Shed should consider?</label>
-                    <textarea name="final_wellbeing" placeholder="Your ideas..." maxlength="200">Peer support network. Check-in system for isolated members.</textarea>
-                </div>
-
-                <div class="question">
-                    <label class="question-label">2. How could the Shed better support members who are experiencing isolation or life challenges?</label>
-                    <textarea name="final_support" placeholder="Your suggestions..." maxlength="200">One-on-one coffee invitations. No judgment quiet space available.</textarea>
-                </div>
-
-                <div class="question">
-                    <label class="question-label">3. How could communication with members, particularly those who rarely/never attend and member involvement generally be improved?</label>
-                    <textarea name="final_communication" placeholder="Your thoughts..." maxlength="200">Monthly newsletter. Closed Facebook group. Simple website.</textarea>
-                </div>
+            <div class="form-group">
+                <label for="final_wellbeing">Are there additional wellbeing, support or social initiatives the Shed should consider?</label>
+                <textarea id="final_wellbeing" name="final_wellbeing"></textarea>
             </div>
 
-            <!-- Form Actions -->
-            <div class="form-actions">
-                <button type="submit" class="btn-submit">Submit Survey</button>
-                <button type="reset" class="btn-reset">Clear Form</button>
+            <div class="form-group">
+                <label for="final_support">How could the Shed better support members who are experiencing isolation or life challenges?</label>
+                <textarea id="final_support" name="final_support"></textarea>
             </div>
 
-            <div id="feedback" class="feedback"></div>
+            <div class="form-group">
+                <label for="final_communication">How could communication with members, particularly those who rarely/never attend and member involvement generally be improved?</label>
+                <textarea id="final_communication" name="final_communication"></textarea>
+            </div>
+
+            <div class="button-group">
+                <button type="button" onclick="saveResponses()">Save Responses</button>
+                <button type="submit">Submit Survey Response</button>
+            </div>
         </form>
 
-        <div class="info-text">
-            <strong>How it works:</strong> Click "Submit Survey" to send your responses via email. You'll be redirected to a confirmation page. Your feedback will be sent to alanbeswick47@gmail.com.
+        <div style="text-align: center; margin-top: 60px; padding-top: 40px; border-top: 2px solid var(--border); font-size: 13px; color: var(--text-light);">
+            <p><strong>Thank You</strong></p>
+            <p style="margin-top: 10px;">Thank you for taking the time to complete this survey. Your feedback is extremely valuable and will help guide future planning, redevelopment ideas and improvements to ensure the Men's Shed continues to support members now and into the future.</p>
         </div>
     </div>
 
     <script>
-        const form = document.getElementById('surveyForm');
-        const feedbackDiv = document.getElementById('feedback');
+    function saveResponses() {
+      const formData = new FormData(document.querySelector('form'));
+      const data = Object.fromEntries(formData);
+      localStorage.setItem('surveyResponses', JSON.stringify(data));
+      alert('Responses saved. You can close the page and come back later.');
+    }
 
-        // Function to set rating and update display
-        function setRating(fieldName, value) {
-            document.getElementById(fieldName).value = value;
-            document.querySelectorAll(`[data-name="${fieldName}"]`).forEach(b => {
-                b.classList.remove('selected');
-                if (b.getAttribute('data-rating') === String(value)) {
-                    b.classList.add('selected');
-                }
-            });
-        }
-
-        // Pre-populate ratings on page load
-        document.addEventListener('DOMContentLoaded', function() {
-            setRating('choice_variety', 3);
-            setRating('choice_flexibility', 4);
-            setRating('connection_importance', 4);
-            setRating('friendship_importance', 4);
-            setRating('friendship_welcomed', 3);
-            setRating('relax_provides', 3);
-            setRating('relax_environment', 2);
-            setRating('growth_learning', 3);
-            setRating('enjoyment_amount', 3);
-        });
-
-        // Handle rating buttons
-        document.querySelectorAll('.rating-btn').forEach(btn => {
-            btn.addEventListener('click', function(e) {
-                e.preventDefault();
-                const rating = this.getAttribute('data-rating');
-                const fieldName = this.getAttribute('data-name');
-                setRating(fieldName, rating);
-            });
-        });
-
-        form.addEventListener('submit', function(e) {
-            // Validation - check if at least membership_duration is filled
-            const membershipSelected = document.querySelector('input[name="membership_duration"]:checked');
-            if (!membershipSelected) {
-                e.preventDefault();
-                showFeedback('Please select your membership duration before submitting.', 'error');
-                return;
+    window.addEventListener('load', function() {
+      const saved = localStorage.getItem('surveyResponses');
+      if (saved) {
+        const data = JSON.parse(saved);
+        for (let [key, value] of Object.entries(data)) {
+          const field = document.querySelector(`[name="${key}"]`);
+          if (field) {
+            if (field.type === 'checkbox' || field.type === 'radio') {
+              const checkField = document.querySelector(`[name="${key}"][value="${value}"]`);
+              if (checkField) checkField.checked = true;
+            } else {
+              field.value = value;
             }
-
-            // FormSubmit will handle the submission
-            showFeedback('✓ Submitting your survey...', 'success');
-        });
-
-        function showFeedback(message, type) {
-            feedbackDiv.textContent = message;
-            feedbackDiv.className = `feedback ${type}`;
+          }
         }
-
-        // Character sanitizer for database safety
-        function sanitizeText(text) {
-            // Smart quotes to straight quotes
-            text = text.replace(/[\u201C\u201D\u201E\u201F]/g, '"');
-            text = text.replace(/[\u2018\u2019\u201A\u201B]/g, "'");
-            // Dashes to hyphen
-            text = text.replace(/[\u2012\u2013\u2014\u2015]/g, '-');
-            // Other special chars
-            text = text.replace(/[\u2026]/g, '...');
-            text = text.replace(/[\u00AE]/g, '(R)');
-            text = text.replace(/[\u2122]/g, '(TM)');
-            text = text.replace(/[\u00A9]/g, '(C)');
-            text = text.replace(/[\u00B0]/g, ' degrees');
-            text = text.replace(/[\u20AC]/g, 'EUR');
-            text = text.replace(/[\u00A3]/g, 'GBP');
-            text = text.replace(/[\u00B7\u2022]/g, '-');
-            // Remove accents
-            text = text.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
-            // Remove remaining non-ASCII
-            text = text.replace(/[^\x00-\x7F]/g, '');
-            return text;
-        }
-
-        // Apply sanitizer on form submit
-        document.getElementById('surveyForm').addEventListener('submit', function(e) {
-            document.querySelectorAll('textarea, input[type="text"]').forEach(field => {
-                field.value = sanitizeText(field.value);
-            });
-        });
-
-        // Naughty word filter
-        const naughtyWords = ['viagra', 'casino', 'lottery', 'porn', 'xxx', 'click here', 'buy now', 'spam', 'scam'];
-        document.querySelectorAll('textarea, input[type="text"]').forEach(field => {
-            field.addEventListener('blur', function() {
-                const text = this.value.toLowerCase();
-                let hasBadWords = false;
-                for (let word of naughtyWords) {
-                    if (text.includes(word)) { hasBadWords = true; break; }
-                }
-                if (hasBadWords) {
-                    this.style.borderColor = 'red';
-                    this.style.backgroundColor = '#ffe6e6';
-                    this.title = 'This field contains inappropriate content. Please review.';
-                } else {
-                    this.style.borderColor = '';
-                    this.style.backgroundColor = '';
-                    this.title = '';
-                }
-            });
-        });
-
+      }
+    });
     </script>
-
-    </body>
+</body>
 </html>
