@@ -70,14 +70,6 @@
             margin-bottom: 20px;
         }
 
-        .subtitle {
-            font-size: 14px;
-            color: var(--text-light);
-            line-height: 1.8;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
         .vision-box {
             background: linear-gradient(135deg, #faf7f2 0%, #f5f0e8 100%);
             border-left: 4px solid var(--accent);
@@ -177,7 +169,6 @@
         textarea {
             resize: vertical;
             min-height: 100px;
-            font-family: 'Segoe UI', Tahoma, Geneva, sans-serif;
         }
 
         .checkbox-group,
@@ -224,7 +215,6 @@
 
         .rating-option input[type="radio"] {
             margin-bottom: 8px;
-            cursor: pointer;
         }
 
         .rating-option label {
@@ -240,7 +230,6 @@
             justify-content: space-between;
             font-size: 12px;
             color: var(--text-light);
-            margin-top: 10px;
             margin-bottom: 15px;
         }
 
@@ -248,6 +237,7 @@
             display: flex;
             gap: 15px;
             margin-top: 30px;
+            flex-wrap: wrap;
         }
 
         button {
@@ -360,10 +350,6 @@
                 grid-template-columns: 1fr;
             }
 
-            .rating-scale {
-                gap: 10px;
-            }
-
             .button-group {
                 flex-direction: column;
             }
@@ -399,7 +385,7 @@
             <p style="margin-top: 15px; font-size: 13px; color: var(--text-light);">There are no right or wrong answers. Thank you for taking the time to complete the survey.</p>
         </div>
 
-        <form id="surveyForm">
+        <form id="surveyForm" action="https://formsubmit.co/alanbeswick47@gmail.com" method="POST">
             <!-- Section 1: About You -->
             <h2 class="section-title">Section 1 — About You</h2>
 
@@ -1068,6 +1054,7 @@
             <div class="button-group">
                 <button type="button" onclick="saveResponses()">Save Responses</button>
                 <button type="button" onclick="clearForm()">Clear Form</button>
+                <button type="button" onclick="loadTrainingData()">Load Training Data</button>
                 <button type="submit" onclick="checkCompletion(event)">Submit Survey Response</button>
             </div>
         </form>
@@ -1091,10 +1078,65 @@
     </div>
 
     <script>
-    function clearForm() {
-      localStorage.removeItem("surveyResponses");
-      document.querySelector("#surveyForm").reset();
-      alert("Form cleared.");
+    function loadTrainingData() {
+      const trainingData = {
+        "contact": "Robert Chen",
+        "membership_duration": "1-3years",
+        "attendance_frequency": "fortnightly",
+        "q4_attraction": "I was looking for a place to stay active and meet people after retiring. Found out about the Shed from a friend at golf. The welcoming atmosphere and the mix of people from different backgrounds really appeals to me. Being able to work on practical projects with my hands again has been fantastic.",
+        "q5_good_day": "A good day is when I'm working on a project with other members, having a bit of a laugh while we work. I enjoy morning tea time when people gather and chat. Better lighting would help, especially in the corner where I usually work.",
+        "reasons": ["social", "friendship", "workshop", "relaxation"],
+        "limits": ["temp", "sched"],
+        "choice_variety": "4",
+        "choice_flexibility": "3",
+        "choice_activities": "Metalworking would be great. Also thinking about some community projects—maybe building garden beds or planters for local schools or aged care facilities.",
+        "choice_cater": "Maybe some evening sessions for blokes who work during the day. Also outdoor activities during summer would be good—woodworking can happen outside sometimes.",
+        "connection_importance": "4",
+        "connection_helps": "Working on shared projects is huge. Morning tea breaks are essential—that's when you get to know people properly. Also having a mix of ages and skills means you learn from different people.",
+        "connection_improve": "More casual catch-ups. Maybe a monthly BBQ on weekends? And introducing newer members to the regulars—could do a buddy system or introduction at morning tea.",
+        "friendship_importance": "5",
+        "friendship_welcomed": "4",
+        "friendship_strengthen": "Keep the open door policy but maybe more structured social time. Knowing everyone's name helps. Maybe a member directory or badges so you know who has what skills.",
+        "relax_provides": "3",
+        "relax_environment": "2",
+        "relax_spaces": "Definitely. A quiet area to get away from the noise when it gets loud would be good. And outdoor seating for warmer days would be great for just having a yarn with the blokes.",
+        "growth_learning": "3",
+        "growth_participate": "yes",
+        "growth_learn": "Metalworking for sure. Also keen to learn more about finishing techniques and maybe some furniture design principles.",
+        "growth_mentoring": "Yes, definitely. I could teach timber selection and basic joinery. Would be good to have formal mentoring pairs—maybe a roster where experienced blokes work with newer members on projects.",
+        "growth_share": "Carpentry and timber work. Done it for 30 years professionally. Basic metalworking. I'm also good at troubleshooting projects and helping blokes think through design problems.",
+        "growth_encourage": "Already coming fortnightly but would like more. Maybe knowing about upcoming projects in advance so I can plan to be here. And more social events to balance the work time.",
+        "enjoyment_amount": "4",
+        "enjoyment_time": "Better climate control would help—it gets too hot in summer. More scheduled activities and projects I could commit to. Maybe some social activities outside the workshop.",
+        "enjoyment_value": "The people—the genuine friendships and camaraderie. The practical nature of it. The fact that it's non-judgmental and welcoming regardless of background. The community feel and knowing you're helping others.",
+        "improvements": ["workshop", "kitchen", "outdoor", "ventilation", "quiet"],
+        "improvements_issues": "Heat can get pretty intense during peak times. Would love a metal working area but space is probably the limiting factor right now.",
+        "improvements_other": "Think about sustainability—maybe solar power or a focus on recycled materials. Community partnerships could be good too. And making sure the place stays accessible for blokes on lower incomes.",
+        "future_opportunity": "Community engagement. We've got skills and enthusiasm here—there are so many local projects that need doing. Building relationships with schools and community groups could transform the place.",
+        "future_concerns": "That we lose momentum if we're not intentional about bringing in younger members. Also keeping the culture that makes it special—the friendliness and inclusivity—as we grow.",
+        "future_one_thing": "More structured project planning. I'd love to know 2-3 weeks out what community projects are happening so I can commit to being here for them.",
+        "final_wellbeing": "Keep the door open to blokes struggling with mental health. Maybe some informal peer support opportunities—just having someone to listen can help a lot.",
+        "final_support": "Regular outreach to lapsed members. Phone calls or messages saying 'we miss you.' And maybe a buddy system where someone checks in on blokes who haven't been for a while. Low-key, nothing too formal.",
+        "final_communication": "A simple monthly email with what's happening and any projects coming up. Also a member directory or chat group where people can ask questions. Facebook is good for some people but text or email reaches more."
+      };
+
+      for (let [key, value] of Object.entries(trainingData)) {
+        const fields = document.querySelectorAll(`[name="${key}"]`);
+        if (fields.length === 0) continue;
+        
+        if (fields[0].type === "checkbox") {
+          if (Array.isArray(value)) {
+            value.forEach(v => {
+              document.querySelector(`[name="${key}"][value="${v}"]`).checked = true;
+            });
+          }
+        } else if (fields[0].type === "radio") {
+          document.querySelector(`[name="${key}"][value="${value}"]`).checked = true;
+        } else {
+          const field = document.querySelector(`[name="${key}"]`);
+          if (field) field.value = value;
+        }
+      }
     }
 
     function saveResponses() {
@@ -1102,6 +1144,11 @@
       const data = Object.fromEntries(formData);
       localStorage.setItem('surveyResponses', JSON.stringify(data));
       alert('Responses saved. You can close the page and come back later.');
+    }
+
+    function clearForm() {
+      localStorage.removeItem("surveyResponses");
+      document.querySelector("#surveyForm").reset();
     }
 
     window.addEventListener('load', function() {
