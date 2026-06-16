@@ -392,7 +392,7 @@
             <div class="form-group">
                 <label for="contact">Contact Details <span class="required">*</span></label>
                 <div class="form-hint">Email or name (we may need to follow up on your feedback)</div>
-                <input type="text" id="contact" name="contact" required>
+                <input type="text" id="contact" name="contact" value="Anon - no follow-up possible" required>
             </div>
 
             <div class="form-group">
@@ -1199,12 +1199,6 @@
 
     function checkCompletion(event) {
       event.preventDefault();
-      
-      const contactField = document.querySelector('#contact').value.trim();
-      if (!contactField) {
-        alert('Please provide contact details (email or name) before submitting.');
-        return;
-      }
       
       if (countFilledFields()) {
         document.getElementById('incompleteModal').style.display = 'block';
